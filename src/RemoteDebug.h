@@ -253,6 +253,7 @@ class RemoteDebug: public Print
 	void showTime(boolean show);
 	void showProfiler(boolean show, uint32_t minTime = 0);
 	void showDebugLevel(boolean show);
+	void setDebugLevel(uint8_t debugLevel);
 	void showColors(boolean show);
 
 	void showRaw(boolean show);
@@ -353,7 +354,7 @@ private:
 	boolean _resetCommandEnabled=false;	// Enable command to reset the board
 
 	boolean _newLine = true;			// New line write ?
-	
+
 	uint32_t connectionTimeout = MAX_TIME_INACTIVE;  // Connection Timeout
 
 	String _command = "";				// Command received

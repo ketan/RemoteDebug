@@ -260,7 +260,7 @@ bool RemoteDebug::begin(String hostName, uint16_t port,  uint8_t startingDebugLe
 	if (port != TELNET_PORT) { // Bug: not more can use begin(port)..
 	    return false;
 	}
-	
+
 	TelnetServer.begin();
 	TelnetServer.setNoDelay(true);
 
@@ -288,8 +288,7 @@ bool RemoteDebug::begin(String hostName, uint16_t port,  uint8_t startingDebugLe
 
 	// Debug level
 
-	_clientDebugLevel = startingDebugLevel;
-	_lastDebugLevel = startingDebugLevel;
+	setDebugLevel(startingDebugLevel);
 
 	return true;
 }
@@ -779,6 +778,13 @@ void RemoteDebug::autoProfilerLevel(uint32_t millisElapsed) {
 
 void RemoteDebug::showDebugLevel(boolean show) {
 	_showDebugLevel = show;
+}
+
+// set debug level
+
+void RemoteDebug::setDebugLevel(uint8_t debugLevel) {
+	_clientDebugLevel = debugLevel;
+	_lastDebugLevel = debugLevel;
 }
 
 // Show colors
